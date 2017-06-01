@@ -1,0 +1,36 @@
+{
+  "name": "gulp-standar",
+  "version": "1.0.0",
+  "description": ":star: Gulp for non-node projects.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericsuarez/standar-gulp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericsuarez/standar-gulp/issues"
+  },
+  "homepage": "https://github.com/ericsuarez/standar-gulp#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^3.2.0",
+    "gulp-csslint": "^1.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-postcss": "^6.4.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-pug-linter": "^0.4.1",
+    "gulp-uglify": "^2.1.2",
+    "pump": "^1.0.2",
+    "jshint": "^2.9.4",
+    "autoprefixer": "^6.7.7",
+    "browser-sync": "^2.18.8"
+  }
+}
