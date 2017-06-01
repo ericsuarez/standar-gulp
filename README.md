@@ -1,5 +1,5 @@
-# :star: standar-gulp
-> Gulp for non-node projects.
+# Standar-Gulp
+> gulpfile for non-node projects.
 
 
 ## Description 
