@@ -1,7 +1,5 @@
-# Standar-Gulp
-> gulpfile for non-node projects.
-
 ![gulp](gulp.png)
+> gulpfile for non-node projects.
 
 ## Description 
 
