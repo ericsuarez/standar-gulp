@@ -1,8 +1,6 @@
 ![gulp](gulp.png)
 > gulpfile for non-node projects.
 
-## Description 
-
 This is a reusable Gulp for non-node projects. Only **Html5** (haml,pug,..) **Css** (scss, less,..) and **Javascript** (ecmascript, babel,..)
 
 ## Install 
