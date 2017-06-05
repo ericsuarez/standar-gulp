@@ -1,30 +1,18 @@
 var gulp = require("gulp");
-var pug = require("gulp-pug");
-var pugLinter = require('gulp-pug-linter')
 var browserSync = require("browser-sync").create();
-var cleanCSS = require('gulp-clean-css');
+
+
+var postcss      = require('gulp-postcss');
+var minifycss    = require('gulp-minify-css');
+var autoprefixer = require('autoprefixer');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
-var postcss      = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var minifycss    = require('gulp-minify-css');
+
+
 var csslint = require('gulp-csslint');
 var jshint = require('gulp-jshint');
-var babel = require('gulp-babel');
  
 
-
-
-/****************************************************************************************************
-*                                 Render Pug template
-****************************************************************************************************/ 
-
-
-gulp.task('pug', () => {
- return gulp.src('views/*.pug')
- .pipe(pug())
- .pipe(gulp.dest('./render/html/'));
-});
 
 
 
@@ -51,31 +39,21 @@ gulp.task('lint:css', function() {
 
 
 gulp.task('lint', ['lint:css','lint:js'],() => {
-  return "Linteando css y js.. :)";
+  return "Lint css y js.. :)";
 });
 
 
 
 /****************************************************************************************************
-*                       Minis + BABEL :)
+*                       Minis 
 ****************************************************************************************************/ 
-
-gulp.task('babel', () => {
-    return gulp.src('public/javascript/babel/*.js')
-        .pipe(babel({
-            presets: ['es2015']
-        }))
-        .pipe(gulp.dest('public/javascript/'));
-});
-
-
 
 
 gulp.task('mini:css', function() {
   return gulp.src('src/public/css/*.css')
   .pipe(postcss([ autoprefixer() ]))
   .pipe(minifycss())
-  .pipe(gulp.dest('./minified/css/'));
+  .pipe(gulp.dest('src/minified/css/'));
 });
 
 
@@ -84,7 +62,7 @@ gulp.task('mini:js', function (cb) {
   pump([
         gulp.src('src/public/javascript/*.js'),
         uglify(),
-        gulp.dest('src/minified/javascript')
+        gulp.dest('src/minified/javascript/')
     ],
     cb
   );
@@ -92,32 +70,8 @@ gulp.task('mini:js', function (cb) {
 
 
 gulp.task('mini', ['mini:css','mini:js'],() => {
-  return "Minificando css y js.. :)";
+  return "Mini css y js.. :)";
 });
-
-
-/****************************************************************************************************
-*                       Not used but utils :)
-****************************************************************************************************/ 
-
-gulp.task('lint:pug', function () {
-  return gulp
-  .src('src/*.pug')
-  .pipe(pugLinter())
-  .pipe(pugLinter.reporter())
-})
-
-
-
-gulp.task('minify-css', function() {
-  return gulp.src('src/public/styles/*.css')
-  .pipe(cleanCSS({compatibility: 'ie8'}))
-  .pipe(gulp.dest('dist'));
-});
-
-
-
-
 
 
 
@@ -134,7 +88,9 @@ gulp.task('default',   () => {
    files: [
    'src/public/css/*.css',
    'src/public/javascript/*.js',
-   'src/*.html'
+   'src/*.html',
+   'src/public/scss/*.scss',
+   'src/public/scss/partials/*scss'
    // './src/public/images/*.*',
    // 'views/*.pug',
    ],
